@@ -38,7 +38,10 @@ If docs conflict, `docs/PLAN.md` wins and the agent must update the other files 
 - Zod validation for API payloads.
 - No duplicated business logic between client/server.
 - Keep calculation logic in isolated pure functions.
-- Add concise comments only for non-obvious logic.
+- Add concise comments consistently:
+  - one short comment for module/function intent where useful;
+  - comments for non-obvious logic, assumptions, and edge-case handling;
+  - avoid noisy comments that restate obvious code.
 
 ## Definition of Done (Per Task)
 - Feature works locally.

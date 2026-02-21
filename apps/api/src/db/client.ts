@@ -5,6 +5,8 @@ import { drizzle } from "drizzle-orm/better-sqlite3";
 
 import * as schema from "./schema.js";
 
+export type DbClient = ReturnType<typeof drizzle<typeof schema>>;
+
 export function resolveDbPath() {
   return path.resolve(process.cwd(), "data", "trading-journal.db");
 }

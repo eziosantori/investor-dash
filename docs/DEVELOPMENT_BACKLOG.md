@@ -5,7 +5,7 @@
 - [x] Setup local API server
 - [x] Setup Drizzle ORM + Drizzle Kit
 - [x] Create initial SQLite migrations
-- [ ] Wire DB client + repository layer
+- [x] Wire DB client + repository layer
 - [ ] Step gate: add/update unit tests for foundation modules
 - [ ] Step gate: run unit tests before moving to Milestone 2
 
@@ -41,6 +41,15 @@
 2. Run `pnpm db:generate` to create first SQL migration
 3. Confirm migration artifact exists under `apps/api/drizzle/`
 4. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
+
+### Step 5 Execution Order (DB client + repository layer)
+1. Keep DB client as single entry point (`src/db/client.ts`)
+2. Add repository abstractions (`SystemMetaStore`, `SystemMetaRepository`)
+3. Add Drizzle adapter store implementation for repository IO
+4. Add repository wiring factory (`createRepositories`)
+5. Wire repository container into Fastify app options/decorator
+6. Add repository unit tests with in-memory store
+7. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
 
 ## Milestone 2 - Journals + Instruments
 - [ ] Create journal CRUD (FTMO, IBKR, etc.)

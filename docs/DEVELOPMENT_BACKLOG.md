@@ -6,8 +6,8 @@
 - [x] Setup Drizzle ORM + Drizzle Kit
 - [x] Create initial SQLite migrations
 - [x] Wire DB client + repository layer
-- [ ] Step gate: add/update unit tests for foundation modules
-- [ ] Step gate: run unit tests before moving to Milestone 2
+- [x] Step gate: add/update unit tests for foundation modules
+- [x] Step gate: run unit tests before moving to Milestone 2
 
 ### Step 1 Execution Order (frontend-only bootstrap)
 1. Setup workspace (`pnpm-workspace.yaml`, root scripts, `.gitignore`)
@@ -50,6 +50,13 @@
 5. Wire repository container into Fastify app options/decorator
 6. Add repository unit tests with in-memory store
 7. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
+
+### Step 6 Execution Order (foundation test gate closure)
+1. Add/refresh unit tests for newly added foundation modules
+2. Run web unit tests (`pnpm test`)
+3. Run API unit tests (`pnpm test:api`)
+4. Run API lint/build sanity (`pnpm lint:api`, `pnpm build:api`)
+5. Mark Milestone 1 test gates as completed
 
 ## Milestone 2 - Journals + Instruments
 - [ ] Create journal CRUD (FTMO, IBKR, etc.)

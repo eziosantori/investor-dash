@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install deps",
+      "type": "shell",
+      "command": "pnpm install",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev: Web",
+      "type": "shell",
+      "command": "pnpm dev",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev: API",
+      "type": "shell",
+      "command": "pnpm dev:api",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev: Web + API",
+      "dependsOrder": "parallel",
+      "dependsOn": ["Dev: API", "Dev: Web"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: Web",
+      "type": "shell",
+      "command": "pnpm test",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: API",
+      "type": "shell",
+      "command": "pnpm test:api",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint: Web",
+      "type": "shell",
+      "command": "pnpm lint",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint: API",
+      "type": "shell",
+      "command": "pnpm lint:api",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build: Web",
+      "type": "shell",
+      "command": "pnpm build",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build: API",
+      "type": "shell",
+      "command": "pnpm build:api",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "DB: Generate",
+      "type": "shell",
+      "command": "pnpm db:generate",
+      "problemMatcher": []
+    },
+    {
+      "label": "DB: Migrate",
+      "type": "shell",
+      "command": "pnpm db:migrate",
+      "problemMatcher": []
+    }
+  ]
+}

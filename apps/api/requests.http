@@ -1,0 +1,243 @@
+### Investor Dash API - REST Client Requests
+### Use with REST Client extension for VS Code
+
+@baseUrl = http://127.0.0.1:3001
+@contentType = application/json
+
+###############################################################################
+### SYSTEM
+###############################################################################
+
+### Health Check
+GET {{baseUrl}}/api/health
+
+###############################################################################
+### JOURNALS
+###############################################################################
+
+### List all journals
+GET {{baseUrl}}/api/journals
+
+### Create journal
+POST {{baseUrl}}/api/journals
+Content-Type: {{contentType}}
+
+{
+  "name": "FTMO Journal",
+  "broker": "FTMO"
+}
+
+### Create second journal
+POST {{baseUrl}}/api/journals
+Content-Type: {{contentType}}
+
+{
+  "name": "IBKR Journal",
+  "broker": "IBKR"
+}
+
+### Get journal by ID
+@journalId = 1
+GET {{baseUrl}}/api/journals/{{journalId}}
+
+### Update journal
+PUT {{baseUrl}}/api/journals/{{journalId}}
+Content-Type: {{contentType}}
+
+{
+  "name": "FTMO Journal Updated"
+}
+
+### Delete journal
+DELETE {{baseUrl}}/api/journals/{{journalId}}
+
+###############################################################################
+### INSTRUMENTS
+###############################################################################
+
+### List instruments for journal
+GET {{baseUrl}}/api/instruments?journalId={{journalId}}
+
+### Create instrument
+POST {{baseUrl}}/api/instruments
+Content-Type: {{contentType}}
+
+{
+  "journalId": {{journalId}},
+  "ticker": "EURUSD",
+  "instrumentType": "FOREX",
+  "defaultLeverage": 30,
+  "minLot": 0.01,
+  "lotStep": 0.01,
+  "marketTimezone": "UTC",
+  "sessionOpenTime": "00:00",
+  "sessionCloseTime": "23:59"
+}
+
+### Get instrument by ID
+@instrumentId = 1
+GET {{baseUrl}}/api/instruments/{{instrumentId}}
+
+### Update instrument
+PUT {{baseUrl}}/api/instruments/{{instrumentId}}
+Content-Type: {{contentType}}
+
+{
+  "ticker": "EURUSD",
+  "defaultLeverage": 50
+}
+
+### Delete instrument
+DELETE {{baseUrl}}/api/instruments/{{instrumentId}}
+
+###############################################################################
+### ACCOUNTS
+###############################################################################
+
+### List accounts for journal
+GET {{baseUrl}}/api/accounts?journalId={{journalId}}
+
+### Create account
+POST {{baseUrl}}/api/accounts
+Content-Type: {{contentType}}
+
+{
+  "journalId": {{journalId}},
+  "accountNumber": "FTMO-123456",
+  "broker": "FTMO",
+  "initialBalance": 10000,
+  "currency": "USD"
+}
+
+### Get account by ID
+@accountId = 1
+GET {{baseUrl}}/api/accounts/{{accountId}}
+
+### Update account
+PUT {{baseUrl}}/api/accounts/{{accountId}}
+Content-Type: {{contentType}}
+
+{
+  "accountNumber": "FTMO-123456-UPD"
+}
+
+### Delete account
+DELETE {{baseUrl}}/api/accounts/{{accountId}}
+
+###############################################################################
+### TRADES
+###############################################################################
+
+### List trades for journal
+GET {{baseUrl}}/api/trades?journalId={{journalId}}
+
+### Create trade
+POST {{baseUrl}}/api/trades
+Content-Type: {{contentType}}
+
+{
+  "journalId": {{journalId}},
+  "accountId": {{accountId}},
+  "instrumentId": {{instrumentId}},
+  "entryPrice": 1.0950,
+  "entrySize": 1.0,
+  "entryTime": "2026-02-21T10:00:00Z",
+  "direction": "LONG"
+}
+
+### Get trade by ID
+@tradeId = 1
+GET {{baseUrl}}/api/trades/{{tradeId}}
+
+### Update trade
+PUT {{baseUrl}}/api/trades/{{tradeId}}
+Content-Type: {{contentType}}
+
+{
+  "entryPrice": 1.0955
+}
+
+### Get trade stats
+GET {{baseUrl}}/api/trades/stats?journalId={{journalId}}
+
+### Delete trade
+DELETE {{baseUrl}}/api/trades/{{tradeId}}
+
+###############################################################################
+### TRADE CLOSURES
+###############################################################################
+
+### Get closures for trade
+GET {{baseUrl}}/api/trades/{{tradeId}}/closures
+
+### Create closure (partial close)
+POST {{baseUrl}}/api/trades/{{tradeId}}/closures
+Content-Type: {{contentType}}
+
+{
+  "closedSize": 0.5,
+  "exitPrice": 1.1000,
+  "exitTime": "2026-02-21T12:00:00Z"
+}
+
+### Update closure
+@closureId = 1
+PUT {{baseUrl}}/api/trade-closures/{{closureId}}
+Content-Type: {{contentType}}
+
+{
+  "exitPrice": 1.1005
+}
+
+### Delete closure
+DELETE {{baseUrl}}/api/trade-closures/{{closureId}}
+
+###############################################################################
+### TRADE NOTES
+###############################################################################
+
+### Get notes for trade
+GET {{baseUrl}}/api/trades/{{tradeId}}/notes
+
+### Create note
+POST {{baseUrl}}/api/trades/{{tradeId}}/notes
+Content-Type: {{contentType}}
+
+{
+  "content": "Strong support at 1.09, broke it with volume"
+}
+
+### Update note
+@noteId = 1
+PUT {{baseUrl}}/api/trade-notes/{{noteId}}
+Content-Type: {{contentType}}
+
+{
+  "content": "Strong support at 1.09, broke it with volume - updated"
+}
+
+### Delete note
+DELETE {{baseUrl}}/api/trade-notes/{{noteId}}
+
+###############################################################################
+### NOTE ATTACHMENTS
+###############################################################################
+
+### Upload attachment to note
+# Nota: Con REST Client devi selezionare il file localmente
+POST {{baseUrl}}/api/trade-notes/{{noteId}}/attachments
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="screenshot.png"
+Content-Type: image/png
+
+< ./screenshot.png
+------WebKitFormBoundary--
+
+### Get attachment URL
+@attachmentId = 1
+GET {{baseUrl}}/api/note-attachments/{{attachmentId}}/url
+
+### Delete attachment
+DELETE {{baseUrl}}/api/note-attachments/{{attachmentId}}

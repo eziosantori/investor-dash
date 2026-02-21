@@ -60,7 +60,7 @@
 
 ## Milestone 2 - Journals + Instruments
 - [x] Create journal CRUD (FTMO, IBKR, etc.)
-- [ ] Add journal switcher in UI
+- [x] Add journal switcher in UI
 - [ ] Create instrument catalog CRUD
 - [ ] Add instrument fields: ticker, type, default leverage, min lot, lot step, session hours
 - [ ] Link instruments to selected journal/account context
@@ -74,6 +74,14 @@
 4. Wire routes into app and in-memory repositories into local server bootstrap
 5. Add CRUD route tests (`create/list/get/update/delete` + payload validation)
 6. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
+
+### Step 8 Execution Order (journal switcher UI)
+1. Add journals hook to fetch `/api/journals` with loading/error state
+2. Add dedicated `JournalSwitcher` component with active selection UI
+3. Integrate switcher into app shell
+4. Add web test for journal switcher and API fetch mock
+5. Add Vite proxy `/api` -> `http://127.0.0.1:3001` for local frontend-backend integration
+6. Verify with `pnpm test`, `pnpm build`, `pnpm lint`
 
 ## Milestone 3 - Trading Core
 - [ ] Create trade CRUD

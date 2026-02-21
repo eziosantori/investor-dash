@@ -44,3 +44,8 @@ Execution docs for building a Trading Journal & Analytics app with phased delive
 ## API Health Check
 - Run API: `pnpm dev:api`
 - Endpoint: `GET http://127.0.0.1:3001/api/health`
+
+## VSCode Tasks/Launch
+- Tasks: `.vscode/tasks.json`
+- Launch configs: `.vscode/launch.json`
+- Keep these files aligned whenever root scripts in `package.json` change.

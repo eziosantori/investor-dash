@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Web Dev",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm dev"
+    },
+    {
+      "name": "Run API Dev",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm dev:api"
+    },
+    {
+      "name": "Run API Tests",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm test:api"
+    },
+    {
+      "name": "Run Web Tests",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm test"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run Web + API Dev",
+      "configurations": ["Run API Dev", "Run Web Dev"]
+    }
+  ]
+}

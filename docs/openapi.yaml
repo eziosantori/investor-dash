@@ -4,9 +4,10 @@ info:
   version: 1.0.0
   description: API for journals, instruments, trades, closures, notes, attachments, routines and finviz reports.
 servers:
-  - url: http://localhost:5173
+  - url: http://127.0.0.1:3001
 
 tags:
+  - name: System
   - name: Journals
   - name: Instruments
   - name: Accounts
@@ -18,6 +19,18 @@ tags:
   - name: Finviz
 
 paths:
+  /api/health:
+    get:
+      tags: [System]
+      summary: API health check
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
   /api/journals:
     get:
       tags: [Journals]
@@ -563,6 +576,22 @@ components:
         format: uuid
 
   schemas:
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [ok]
+        service:
+          type: string
+          enum: [api]
+        timestamp:
+          type: string
+          format: date-time
+        uptime:
+          type: number
+      required: [status, service, timestamp, uptime]
+
     Journal:
       type: object
       properties:

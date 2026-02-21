@@ -44,3 +44,30 @@ pnpm lint
 - Create storage bucket for note attachments.
 - Apply RLS policies to DB and storage.
 - Run PostgreSQL migrations generated from Drizzle schema.
+
+## Local API Scaffold (Step 2)
+
+## 1) Start API
+```bash
+pnpm dev:api
+```
+
+## 2) Run API tests
+```bash
+pnpm test:api
+```
+
+## 3) Build API
+```bash
+pnpm build:api
+```
+
+## 4) Lint API
+```bash
+pnpm lint:api
+```
+
+## 5) Health endpoint
+```bash
+curl http://127.0.0.1:3001/api/health
+```

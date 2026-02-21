@@ -6,6 +6,15 @@
 - Return stable error shape: `{ code, message, details? }`.
 - Require journal context for journal-scoped resources (`journalId` in route or query).
 
+## System
+- `GET /api/health`
+  - Returns `200 OK`
+  - Payload:
+    - `status: "ok"`
+    - `service: "api"`
+    - `timestamp: string` (ISO-8601)
+    - `uptime: number`
+
 ## Journals
 - `GET /api/journals`
 - `GET /api/journals/:id`

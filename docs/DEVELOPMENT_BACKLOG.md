@@ -1,8 +1,8 @@
 # DEVELOPMENT_BACKLOG.md
 
 ## Milestone 1 - Foundation
-- [ ] Bootstrap React + TypeScript + Tailwind + shadcn/ui
-- [ ] Setup local API server
+- [x] Bootstrap React + TypeScript + Tailwind + shadcn/ui
+- [x] Setup local API server
 - [ ] Setup Drizzle ORM + Drizzle Kit
 - [ ] Create initial SQLite migrations
 - [ ] Wire DB client + repository layer
@@ -17,6 +17,16 @@
 5. Configure test harness (`Vitest`, RTL, jsdom) and add one deterministic unit test
 6. Configure ESLint + Prettier
 7. Verify with `pnpm test`, `pnpm build`, `pnpm lint`
+
+### Step 2 Execution Order (API scaffold only)
+1. Scaffold `apps/api` with Fastify + TypeScript
+2. Add app factory and server bootstrap (`HOST=127.0.0.1`, `PORT=3001`)
+3. Add `GET /api/health` route
+4. Add API test harness (`Vitest`) with unit/integration-light tests
+5. Add API lint/format baseline
+6. Update root scripts (`dev:api`, `test:api`, `build:api`, `lint:api`)
+7. Update docs (`README`, `SETUP`, `API_SPEC`, `openapi`)
+8. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`, and manual `curl`
 
 ## Milestone 2 - Journals + Instruments
 - [ ] Create journal CRUD (FTMO, IBKR, etc.)

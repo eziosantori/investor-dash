@@ -4,8 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api dev",
     "build": "pnpm --filter web build",
+    "build:api": "pnpm --filter api build",
     "test": "pnpm --filter web test",
-    "lint": "pnpm --filter web lint"
+    "test:api": "pnpm --filter api test",
+    "lint": "pnpm --filter web lint",
+    "lint:api": "pnpm --filter api lint"
   }
 }

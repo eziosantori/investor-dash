@@ -5,9 +5,13 @@ Execution docs for building a Trading Journal & Analytics app with phased delive
 ## Quick Start
 - `pnpm install`
 - `pnpm dev`
+- `pnpm dev:api`
 - `pnpm test`
+- `pnpm test:api`
 - `pnpm build`
+- `pnpm build:api`
 - `pnpm lint`
+- `pnpm lint:api`
 
 ## Start Here
 - `docs/PLAN.md`: full roadmap and scope.
@@ -34,3 +38,7 @@ Execution docs for building a Trading Journal & Analytics app with phased delive
 - `docs/openapi.yaml`
 - `docs/TEST_PLAN.md`
 - `docs/SETUP.md`
+
+## API Health Check
+- Run API: `pnpm dev:api`
+- Endpoint: `GET http://127.0.0.1:3001/api/health`

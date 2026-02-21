@@ -1,9 +1,11 @@
 import { buildApp } from "./app.js";
+import { createInMemoryRepositories } from "./db/repositories/index.js";
 
 const HOST = process.env.HOST ?? "127.0.0.1";
 const PORT = Number(process.env.PORT ?? 3001);
 
-const app = buildApp();
+// Local development uses in-memory repositories until native SQLite bindings are enabled.
+const app = buildApp({ repositories: createInMemoryRepositories() });
 
 const start = async () => {
   try {

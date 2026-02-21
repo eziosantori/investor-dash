@@ -59,13 +59,21 @@
 5. Mark Milestone 1 test gates as completed
 
 ## Milestone 2 - Journals + Instruments
-- [ ] Create journal CRUD (FTMO, IBKR, etc.)
+- [x] Create journal CRUD (FTMO, IBKR, etc.)
 - [ ] Add journal switcher in UI
 - [ ] Create instrument catalog CRUD
 - [ ] Add instrument fields: ticker, type, default leverage, min lot, lot step, session hours
 - [ ] Link instruments to selected journal/account context
 - [ ] Step gate: add/update unit tests for journal/instrument services
 - [ ] Step gate: run unit tests before moving to Milestone 3
+
+### Step 7 Execution Order (journal CRUD API)
+1. Add journal repository abstraction and in-memory store adapter
+2. Extend repository container with `journals` repository
+3. Add Fastify journal routes (`GET/POST/PUT/DELETE /api/journals`)
+4. Wire routes into app and in-memory repositories into local server bootstrap
+5. Add CRUD route tests (`create/list/get/update/delete` + payload validation)
+6. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
 
 ## Milestone 3 - Trading Core
 - [ ] Create trade CRUD

@@ -4,7 +4,7 @@
 - [x] Bootstrap React + TypeScript + Tailwind + shadcn/ui
 - [x] Setup local API server
 - [x] Setup Drizzle ORM + Drizzle Kit
-- [ ] Create initial SQLite migrations
+- [x] Create initial SQLite migrations
 - [ ] Wire DB client + repository layer
 - [ ] Step gate: add/update unit tests for foundation modules
 - [ ] Step gate: run unit tests before moving to Milestone 2
@@ -35,6 +35,12 @@
 4. Add DB scaffold files (`src/db/schema.ts`, `src/db/client.ts`)
 5. Add lightweight DB foundation test without migration/domain coupling
 6. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
+
+### Step 4 Execution Order (initial SQLite migrations)
+1. Keep a minimal Drizzle schema scaffold for migration bootstrap
+2. Run `pnpm db:generate` to create first SQL migration
+3. Confirm migration artifact exists under `apps/api/drizzle/`
+4. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
 
 ## Milestone 2 - Journals + Instruments
 - [ ] Create journal CRUD (FTMO, IBKR, etc.)

@@ -9,6 +9,15 @@
 - [ ] Step gate: add/update unit tests for foundation modules
 - [ ] Step gate: run unit tests before moving to Milestone 2
 
+### Step 1 Execution Order (frontend-only bootstrap)
+1. Setup workspace (`pnpm-workspace.yaml`, root scripts, `.gitignore`)
+2. Scaffold `apps/web` with React + Vite + TypeScript
+3. Configure Tailwind and base design tokens
+4. Initialize shadcn/ui base setup and components (`Button`, `Card`, `Input`)
+5. Configure test harness (`Vitest`, RTL, jsdom) and add one deterministic unit test
+6. Configure ESLint + Prettier
+7. Verify with `pnpm test`, `pnpm build`, `pnpm lint`
+
 ## Milestone 2 - Journals + Instruments
 - [ ] Create journal CRUD (FTMO, IBKR, etc.)
 - [ ] Add journal switcher in UI

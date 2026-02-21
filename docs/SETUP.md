@@ -1,42 +1,45 @@
 # SETUP.md
 
-## Local Development (Planned Commands)
+## Local Development (Step 1)
 
 ## 1) Install dependencies
 ```bash
-npm install
+pnpm install
 ```
 
-## 2) Initialize Drizzle + SQLite
+## 2) Start development server
 ```bash
-npm run db:generate
-npm run db:migrate
+pnpm dev
 ```
 
-## 3) Start local development
+## 3) Run unit tests
 ```bash
-npm run dev
+pnpm test
 ```
 
-## 4) Step validation (recommended after every small slice)
+## 4) Build production bundle
 ```bash
-npm run test
+pnpm build
 ```
 
-## Suggested Scripts (to add in package.json)
+## 5) Lint source
+```bash
+pnpm lint
+```
+
+## Workspace Scripts (root `package.json`)
 ```json
 {
   "scripts": {
-    "dev": "vite",
-    "test": "vitest run",
-    "test:e2e": "playwright test",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "dev": "pnpm --filter web dev",
+    "test": "pnpm --filter web test",
+    "build": "pnpm --filter web build",
+    "lint": "pnpm --filter web lint"
   }
 }
 ```
 
-## Phase 2 Setup (Supabase)
+## Phase 2 Setup (planned, not in Step 1)
 - Configure `.env` with Supabase URL and anon key.
 - Create storage bucket for note attachments.
 - Apply RLS policies to DB and storage.

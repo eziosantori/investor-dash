@@ -2,6 +2,13 @@
 
 Execution docs for building a Trading Journal & Analytics app with phased delivery.
 
+## Quick Start
+- `pnpm install`
+- `pnpm dev`
+- `pnpm test`
+- `pnpm build`
+- `pnpm lint`
+
 ## Start Here
 - `docs/PLAN.md`: full roadmap and scope.
 - `AGENTS.md`: autonomous execution rules for coding agents.

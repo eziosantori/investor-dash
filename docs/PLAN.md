@@ -705,6 +705,9 @@ INSERT INTO rules (user_id, rule_number, rule_text, reason) VALUES
 
 ## 📦 Tech Stack Details
 
+### Package Manager
+- `pnpm` (workspace mode)
+
 ### Frontend
 ```json
 {

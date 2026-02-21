@@ -3,7 +3,7 @@
 ## Milestone 1 - Foundation
 - [x] Bootstrap React + TypeScript + Tailwind + shadcn/ui
 - [x] Setup local API server
-- [ ] Setup Drizzle ORM + Drizzle Kit
+- [x] Setup Drizzle ORM + Drizzle Kit
 - [ ] Create initial SQLite migrations
 - [ ] Wire DB client + repository layer
 - [ ] Step gate: add/update unit tests for foundation modules
@@ -27,6 +27,14 @@
 6. Update root scripts (`dev:api`, `test:api`, `build:api`, `lint:api`)
 7. Update docs (`README`, `SETUP`, `API_SPEC`, `openapi`)
 8. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`, and manual `curl`
+
+### Step 3 Execution Order (Drizzle setup only)
+1. Add Drizzle dependencies to `apps/api` (`drizzle-orm`, `drizzle-kit`, `better-sqlite3`)
+2. Add Drizzle scripts (`db:generate`, `db:migrate`) in API package and root workspace
+3. Add `drizzle.config.ts` for local SQLite target
+4. Add DB scaffold files (`src/db/schema.ts`, `src/db/client.ts`)
+5. Add lightweight DB foundation test without migration/domain coupling
+6. Verify with `pnpm test:api`, `pnpm build:api`, `pnpm lint:api`
 
 ## Milestone 2 - Journals + Instruments
 - [ ] Create journal CRUD (FTMO, IBKR, etc.)

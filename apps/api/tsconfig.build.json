@@ -2,7 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "types": ["node"],
-    "declaration": true,
     "sourceMap": true
   },
   "exclude": ["src/**/*.test.ts", "src/test/**"]

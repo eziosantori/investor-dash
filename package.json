@@ -9,6 +9,8 @@
     "build:api": "pnpm --filter api build",
     "test": "pnpm --filter web test",
     "test:api": "pnpm --filter api test",
+    "db:generate": "pnpm --filter api db:generate",
+    "db:migrate": "pnpm --filter api db:migrate",
     "lint": "pnpm --filter web lint",
     "lint:api": "pnpm --filter api lint"
   }

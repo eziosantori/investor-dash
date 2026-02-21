@@ -10,6 +10,8 @@ Execution docs for building a Trading Journal & Analytics app with phased delive
 - `pnpm test:api`
 - `pnpm build`
 - `pnpm build:api`
+- `pnpm db:generate`
+- `pnpm db:migrate`
 - `pnpm lint`
 - `pnpm lint:api`
 

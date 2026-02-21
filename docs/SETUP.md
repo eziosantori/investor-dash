@@ -71,3 +71,15 @@ pnpm lint:api
 ```bash
 curl http://127.0.0.1:3001/api/health
 ```
+
+## Drizzle Setup (Step 3)
+
+## 1) Generate migrations from schema
+```bash
+pnpm db:generate
+```
+
+## 2) Apply migrations to local SQLite
+```bash
+pnpm db:migrate
+```

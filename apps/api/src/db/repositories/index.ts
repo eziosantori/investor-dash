@@ -1,4 +1,5 @@
 import type { DbClient } from "../client.js";
+import type { Instrument, Journal } from "@investor-dash/shared-types";
 
 import { createInMemoryInstrumentStore } from "./instruments/in-memory-instrument.store.js";
 import { createInstrumentRepository } from "./instruments/instrument.repository.js";
@@ -13,6 +14,11 @@ export interface Repositories {
   instruments: ReturnType<typeof createInstrumentRepository>;
 }
 
+type InMemoryRepositoryOptions = {
+  journalSeed?: Journal[];
+  instrumentSeed?: Instrument[];
+};
+
 export function createRepositories(db: DbClient): Repositories {
   return {
     systemMeta: createSystemMetaRepository(createDrizzleSystemMetaStore(db)),
@@ -23,7 +29,10 @@ export function createRepositories(db: DbClient): Repositories {
   };
 }
 
-export function createInMemoryRepositories(): Repositories {
+export function createInMemoryRepositories(options: InMemoryRepositoryOptions = {}): Repositories {
+  const journalStore = createInMemoryJournalStore(options.journalSeed);
+  const instrumentStore = createInMemoryInstrumentStore(options.instrumentSeed);
+
   return {
     systemMeta: createSystemMetaRepository({
       async findByKey() {
@@ -33,7 +42,7 @@ export function createInMemoryRepositories(): Repositories {
         return undefined;
       },
     }),
-    journals: createJournalRepository(createInMemoryJournalStore()),
-    instruments: createInstrumentRepository(createInMemoryInstrumentStore()),
+    journals: createJournalRepository(journalStore),
+    instruments: createInstrumentRepository(instrumentStore),
   };
 }

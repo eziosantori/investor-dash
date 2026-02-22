@@ -1,11 +1,23 @@
 import { buildApp } from "./app.js";
 import { createInMemoryRepositories } from "./db/repositories/index.js";
+import { instrumentSeed, journalSeed } from "./db/repositories/seed.js";
 
 const HOST = process.env.HOST ?? "127.0.0.1";
 const PORT = Number(process.env.PORT ?? 3001);
 
+const SEED_DEMO_DATA = process.env.SEED_DEMO_DATA !== "false";
+
 // Local development uses in-memory repositories until native SQLite bindings are enabled.
-const app = buildApp({ repositories: createInMemoryRepositories() });
+const app = buildApp({
+  repositories: createInMemoryRepositories(
+    SEED_DEMO_DATA
+      ? {
+          journalSeed,
+          instrumentSeed,
+        }
+      : undefined,
+  ),
+});
 
 const start = async () => {
   try {

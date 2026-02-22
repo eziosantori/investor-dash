@@ -45,6 +45,13 @@ Execution docs for building a Trading Journal & Analytics app with phased delive
 - Run API: `pnpm dev:api`
 - Endpoint: `GET http://127.0.0.1:3001/api/health`
 
+## Demo Seed Data (In-Memory)
+- During local API development (in-memory mode), demo journals/instruments are preloaded.
+- Seed can be disabled with: `SEED_DEMO_DATA=false pnpm dev:api`
+- Default seeded journal IDs:
+  - `journal-ftmo`
+  - `journal-ibkr`
+
 ## VSCode Tasks/Launch
 - Tasks: `.vscode/tasks.json`
 - Launch configs: `.vscode/launch.json`

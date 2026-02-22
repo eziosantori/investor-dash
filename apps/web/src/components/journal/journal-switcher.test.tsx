@@ -1,8 +1,11 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import type { Journal } from "@investor-dash/shared-types";
+import { vi } from "vitest";
 
 import { JournalSwitcher } from "./journal-switcher";
+import type { JournalState } from "@/hooks/use-journals";
 
-const journalsPayload = [
+const journalsPayload: Journal[] = [
   {
     id: "j-1",
     name: "FTMO Journal",
@@ -15,23 +18,22 @@ const journalsPayload = [
   },
 ];
 
-// Mocks API response to test UI state transitions deterministically.
+const state: JournalState = {
+  journals: journalsPayload,
+  loading: false,
+  error: null,
+  selectedJournalId: "j-1",
+  setSelectedJournalId: vi.fn(),
+  selectedJournal: journalsPayload[0],
+};
+
+// Renders deterministic journal selection from preloaded state.
 describe("JournalSwitcher", () => {
-  it("renders journals from API", async () => {
-    vi.spyOn(globalThis, "fetch").mockResolvedValue({
-      ok: true,
-      json: async () => journalsPayload,
-    } as Response);
+  it("renders journals from state", () => {
+    render(<JournalSwitcher state={state} />);
 
-    render(<JournalSwitcher />);
-
-    await waitFor(() => {
-      expect(screen.getByRole("combobox", { name: "Journal" })).toBeInTheDocument();
-    });
-
+    expect(screen.getByRole("combobox", { name: "Journal" })).toBeInTheDocument();
     expect(screen.getByRole("option", { name: "FTMO Journal" })).toBeInTheDocument();
     expect(screen.getByText("FTMO")).toBeInTheDocument();
-
-    vi.restoreAllMocks();
   });
 });

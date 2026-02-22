@@ -1,10 +1,14 @@
-import { useJournals } from "@/hooks/use-journals";
+import type { JournalState } from "@/hooks/use-journals";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
+type JournalSwitcherProps = {
+  state: JournalState;
+};
+
 // Journal selector used to scope future dashboard and trade screens.
-export function JournalSwitcher() {
-  const { journals, loading, error, selectedJournalId, setSelectedJournalId, selectedJournal } = useJournals();
+export function JournalSwitcher({ state }: JournalSwitcherProps) {
+  const { journals, loading, error, selectedJournalId, setSelectedJournalId, selectedJournal } = state;
 
   return (
     <Card>

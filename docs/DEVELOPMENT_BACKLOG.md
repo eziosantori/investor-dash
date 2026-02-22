@@ -63,7 +63,7 @@
 - [x] Add journal switcher in UI
 - [x] Create instrument catalog CRUD
 - [x] Add instrument fields: ticker, type, default leverage, min lot, lot step, session hours
-- [ ] Link instruments to selected journal/account context
+- [x] Link instruments to selected journal/account context
 - [ ] Step gate: add/update unit tests for journal/instrument services
 - [ ] Step gate: run unit tests before moving to Milestone 3
 

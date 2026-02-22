@@ -37,7 +37,7 @@ Content-Type: {{contentType}}
 }
 
 ### Get journal by ID
-@journalId = 1
+@journalId = journal-ftmo
 GET {{baseUrl}}/api/journals/{{journalId}}
 
 ### Update journal
@@ -63,7 +63,7 @@ POST {{baseUrl}}/api/instruments
 Content-Type: {{contentType}}
 
 {
-  "journalId": {{journalId}},
+  "journalId": "{{journalId}}",
   "ticker": "EURUSD",
   "instrumentType": "FOREX",
   "defaultLeverage": 30,
@@ -75,7 +75,7 @@ Content-Type: {{contentType}}
 }
 
 ### Get instrument by ID
-@instrumentId = 1
+@instrumentId = instrument-us100
 GET {{baseUrl}}/api/instruments/{{instrumentId}}
 
 ### Update instrument

@@ -1,11 +1,11 @@
 import type { DbClient } from "../client.js";
 
-import { createDrizzleSystemMetaStore } from "./drizzle-system-meta.store.js";
-import { createInMemoryInstrumentStore } from "./in-memory-instrument.store.js";
-import { createInMemoryJournalStore } from "./in-memory-journal.store.js";
-import { createInstrumentRepository } from "./instrument.repository.js";
-import { createJournalRepository } from "./journal.repository.js";
-import { createSystemMetaRepository } from "./system-meta.repository.js";
+import { createInMemoryInstrumentStore } from "./instruments/in-memory-instrument.store.js";
+import { createInstrumentRepository } from "./instruments/instrument.repository.js";
+import { createInMemoryJournalStore } from "./journals/in-memory-journal.store.js";
+import { createJournalRepository } from "./journals/journal.repository.js";
+import { createDrizzleSystemMetaStore } from "./system-meta/drizzle-system-meta.store.js";
+import { createSystemMetaRepository } from "./system-meta/system-meta.repository.js";
 
 export interface Repositories {
   systemMeta: ReturnType<typeof createSystemMetaRepository>;

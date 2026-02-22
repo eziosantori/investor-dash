@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { createSystemMetaRepository, type SystemMetaRecord, type SystemMetaStore } from "./system-meta.repository.js";
+import { createSystemMetaRepository, type SystemMetaRecord, type SystemMetaStore } from "./system-meta/system-meta.repository.js";
 
 function createInMemoryStore(): SystemMetaStore {
   const map = new Map<string, string>();

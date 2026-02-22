@@ -10,6 +10,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@investor-dash/shared-types':
+        specifier: workspace:*
+        version: link:../../packages/shared-types
       better-sqlite3:
         specifier: ^11.8.1
         version: 11.10.0
@@ -59,6 +62,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@investor-dash/shared-types':
+        specifier: workspace:*
+        version: link:../../packages/shared-types
       '@radix-ui/react-slot':
         specifier: ^1.1.1
         version: 1.2.4(@types/react@18.3.28)(react@18.3.1)
@@ -141,6 +147,8 @@ importers:
       vitest:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.19.11)(jsdom@25.0.1)
+
+  packages/shared-types: {}
 
 packages:
 

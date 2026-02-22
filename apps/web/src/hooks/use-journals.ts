@@ -1,15 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-
-export type Journal = {
-  id: string;
-  name: string;
-  broker: string | null;
-  baseCurrency: string;
-  timezone: string;
-  isActive: boolean;
-  createdAt: string;
-  updatedAt: string;
-};
+import type { Journal } from "@investor-dash/shared-types";
 
 export type JournalState = {
   journals: Journal[];

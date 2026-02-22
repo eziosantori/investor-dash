@@ -1,4 +1,6 @@
-import type { Instrument, InstrumentStore, UpdateInstrumentInput } from "./instrument.repository.js";
+import type { Instrument, UpdateInstrumentInput } from "@investor-dash/shared-types";
+
+import type { InstrumentStore } from "./instrument.repository.js";
 
 // In-memory adapter used for local development until SQLite native bindings are enabled.
 export function createInMemoryInstrumentStore(seed: Instrument[] = []): InstrumentStore {

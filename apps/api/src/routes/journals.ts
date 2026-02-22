@@ -1,6 +1,6 @@
 import type { FastifyInstance } from "fastify";
 
-import type { CreateJournalInput, UpdateJournalInput } from "../db/repositories/journal.repository.js";
+import type { CreateJournalInput, UpdateJournalInput } from "@investor-dash/shared-types";
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;

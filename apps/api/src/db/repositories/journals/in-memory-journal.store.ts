@@ -1,4 +1,6 @@
-import type { Journal, JournalStore, UpdateJournalInput } from "./journal.repository.js";
+import type { Journal, UpdateJournalInput } from "@investor-dash/shared-types";
+
+import type { JournalStore } from "./journal.repository.js";
 
 // In-memory adapter used for local development until SQLite native bindings are enabled.
 export function createInMemoryJournalStore(seed: Journal[] = []): JournalStore {

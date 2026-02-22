@@ -1,5 +1,5 @@
-import type { DbClient } from "../client.js";
-import { systemMeta } from "../schema.js";
+import type { DbClient } from "../../client.js";
+import { systemMeta } from "../../schema.js";
 import type { SystemMetaStore } from "./system-meta.repository.js";
 
 export function createDrizzleSystemMetaStore(db: DbClient): SystemMetaStore {

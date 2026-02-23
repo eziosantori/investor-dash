@@ -64,8 +64,8 @@
 - [x] Create instrument catalog CRUD
 - [x] Add instrument fields: ticker, type, default leverage, min lot, lot step, session hours
 - [x] Link instruments to selected journal/account context
-- [ ] Step gate: add/update unit tests for journal/instrument services
-- [ ] Step gate: run unit tests before moving to Milestone 3
+- [x] Step gate: add/update unit tests for journal/instrument services
+- [x] Step gate: run unit tests before moving to Milestone 3
 
 ### Step 7 Execution Order (journal CRUD API)
 1. Add journal repository abstraction and in-memory store adapter
